@@ -1,0 +1,13 @@
+substitutions:
+  #sonoff config
+  sonoff4ch_button_1_pin: GPIO0
+  sonoff4ch_button_2_pin: GPIO9
+  sonoff4ch_button_3_pin: GPIO10
+  sonoff4ch_button_4_pin: GPIO14
+  
+  sonoff4ch_relay_1_pin: GPIO12
+  sonoff4ch_relay_2_pin: GPIO5
+  sonoff4ch_relay_3_pin: GPIO4
+  sonoff4ch_relay_4_pin: GPIO15
+  
+  sonoff4ch_blue_led_pin: GPIO13
