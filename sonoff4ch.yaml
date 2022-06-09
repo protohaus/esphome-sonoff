@@ -22,6 +22,7 @@ binary_sensor:
     inverted: true
   on_press:
     - switch.toggle: ${device_name}_relay_2
+    
 - platform: gpio
   name: ${device_name_upper}.button_3
   id: ${device_name}_button_3
@@ -32,7 +33,7 @@ binary_sensor:
       pullup: true
     inverted: true
   on_press:
-    - switch.toggle: relay_3
+    - switch.toggle: ${device_name}_relay_3
     
 - platform: gpio
   name: ${device_name_upper}.button_4
@@ -44,7 +45,7 @@ binary_sensor:
       pullup: true
     inverted: true
   on_press:
-    - switch.toggle: relay_4
+    - switch.toggle: ${device_name}_relay_4
 
 switch:
 - platform: gpio
