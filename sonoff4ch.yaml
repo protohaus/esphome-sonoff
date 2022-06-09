@@ -1,73 +1,81 @@
 binary_sensor:
 - platform: gpio
-  pin:
-    number: GPIO0
-    mode:
-      input: true
-      pullup: true
-    inverted: true
-  name: "Sonoff 4CH Button 1"
+  name: ${device_name_upper}.button_1
   id: ${device_name}_button_1
-  on_press:
-    - switch.toggle: relay_1
-- platform: gpio
   pin:
-    number: GPIO9
+    number: ${sonoff4ch_button_1_pin}
     mode:
       input: true
       pullup: true
     inverted: true
-  name: "Sonoff 4CH Button 2"
   on_press:
-    - switch.toggle: relay_2
+    - switch.toggle: ${device_name}_relay_1
+    
 - platform: gpio
+  name: ${device_name_upper}.button_2
+  id: ${device_name}_button_2
   pin:
-    number: GPIO10
+    number: ${sonoff4ch_button_2_pin}
     mode:
       input: true
       pullup: true
     inverted: true
-  name: "Sonoff 4CH Button 3"
+  on_press:
+    - switch.toggle: ${device_name}_relay_2
+- platform: gpio
+  name: ${device_name_upper}.button_3
+  id: ${device_name}_button_3
+  pin:
+    number: ${sonoff4ch_button_3_pin}
+    mode:
+      input: true
+      pullup: true
+    inverted: true
   on_press:
     - switch.toggle: relay_3
+    
 - platform: gpio
+  name: ${device_name_upper}.button_4
+  id: ${device_name}_button_4
   pin:
-    number: GPIO14
+    number: ${sonoff4ch_button_4_pin} 
     mode:
       input: true
       pullup: true
     inverted: true
-  name: "Sonoff 4CH Button 4"
   on_press:
     - switch.toggle: relay_4
-- platform: status
-  name: "Sonoff 4CH Status"
 
 switch:
 - platform: gpio
-  name: "Sonoff 4CH Relay 1"
-  pin: GPIO12
-  id: relay_1
+  name: ${device_name_upper}.relay_1
+  id: ${device_name}_relay_1
+  pin: ${sonoff4ch_relay_1_pin}
+  
 - platform: gpio
-  name: "Sonoff 4CH Relay 2"
-  pin: GPIO5
-  id: relay_2
+  name: ${device_name_upper}.relay_2
+  id: ${device_name}_relay_2
+  pin: ${sonoff4ch_relay_2_pin}
+  
 - platform: gpio
-  name: "Sonoff 4CH Relay 3"
-  pin: GPIO4
-  id: relay_3
+  name: ${device_name_upper}.relay_3
+  id: ${device_name}_relay_3
+  pin: ${sonoff4ch_relay_3_pin}
+  
+
 - platform: gpio
-  name: "Sonoff 4CH Relay 4"
-  pin: GPIO15
-  id: relay_4
+  name: ${device_name_upper}.relay_4
+  id: ${device_name}_relay_4
+  pin: ${sonoff4ch_relay_4_pin}
 
 output:
 - platform: esp8266_pwm
-  id: blue_led
-  pin: GPIO13
+  id: ${device_name}_blue_led_output
+  pin: ${sonoff4ch_blue_led_pin}
   inverted: true
 
 light:
 - platform: monochromatic
-  name: "Sonoff 4CH Blue LED"
-  output: blue_led
+  name: ${device_name_upper}.blue_led
+  id: ${device_name}_blue_led
+  output: ${device_name}_blue_led_output
