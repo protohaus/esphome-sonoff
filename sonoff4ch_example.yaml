@@ -41,4 +41,5 @@ packages:
   common_base: !include /config/esphome/esphome-common/base.yaml
   common_status: !include /config/esphome/esphome-common/status.yaml
   common_restart: !include /config/esphome/esphome-common/restart.yaml
+  common_boot_finished: !include /config/esphome/esphome-common/boot_finished.yaml
   sonoff_sonoff4ch: !include /config/esphome/esphome-sonoff/sonoff4ch.yaml

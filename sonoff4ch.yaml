@@ -80,3 +80,20 @@ light:
   name: ${device_name_upper}.blue_led
   id: ${device_name}_blue_led
   output: ${device_name}_blue_led_output
+  
+interval:
+  - interval: ${api_connection_check_interval}
+    then:
+      - if:
+          condition:
+            not:
+              api.connected:
+          then:
+            lambda: |-
+              if (id(boot_finished))
+              {
+                id(${device_name}_relay_1).turn_off();
+                id(${device_name}_relay_2).turn_off();
+                id(${device_name}_relay_3).turn_off();
+                id(${device_name}_relay_4).turn_off();
+              }
